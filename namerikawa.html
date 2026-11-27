@@ -1,0 +1,1897 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>きらっと楽しい！滑川市さんぽ＆動画ギャラリー</title>
+  <style>
+    :root {
+      --bg: #fffdf5;
+      --surface: #ffffff;
+      --ink: #1e293b;
+      --muted: #526071;
+      --pop-yellow: #ffd43b;
+      --pop-blue: #22b8cf;
+      --pop-coral: #ff6b6b;
+      --pop-mint: #38d9a9;
+      --pop-orange: #ff7a00;
+      --border: #1e293b;
+      --shadow: 4px 4px 0px #1e293b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Hiragino Maru Gothic ProN", "Rounded Mplus 1c", "Noto Sans JP", sans-serif;
+      background-color: var(--bg);
+      background-image: radial-gradient(#ffe066 1.25px, transparent 1.25px);
+      background-size: 24px 24px;
+      color: var(--ink);
+      line-height: 1.75;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background-color: var(--pop-yellow);
+      border-bottom: 3px solid var(--border);
+      padding: 0.9rem 1.25rem;
+    }
+
+    .nav-wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.15rem;
+      text-decoration: none;
+      color: var(--ink);
+      background: #fff;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      border: 2px solid var(--border);
+      box-shadow: 2px 2px 0 var(--border);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--ink);
+      font-weight: 700;
+      font-size: 0.9rem;
+      background: #fff;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      border: 2px solid var(--border);
+      transition: transform 0.12s ease, background-color 0.12s ease;
+    }
+
+    nav a:hover {
+      background: var(--pop-mint);
+      transform: translate(-1px, -1px);
+    }
+
+    main {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 4rem;
+    }
+
+    /* ヒーローエリア */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #e3fafc 0%, #fff9db 55%, #ffe3e3 100%);
+      border: 3px solid var(--border);
+      border-radius: 24px;
+      padding: 2.2rem 1.75rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 2.2rem;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-steam {
+      position: absolute;
+      right: 1rem;
+      bottom: -8px;
+      width: 150px;
+      height: 170px;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.85;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--pop-coral);
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.85rem;
+      padding: 0.25rem 0.85rem;
+      border-radius: 999px;
+      border: 2px solid var(--border);
+      margin-bottom: 0.9rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.65rem, 4vw, 2.4rem);
+      line-height: 1.3;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      font-weight: 800;
+      color: var(--ink);
+      background: var(--pop-yellow);
+      border: 2.5px solid var(--border);
+      border-radius: 14px;
+      padding: 0.65rem 1.25rem;
+      box-shadow: 3px 3px 0 var(--border);
+      transition: transform 0.12s ease;
+    }
+
+    .btn.secondary {
+      background: var(--pop-blue);
+      color: #fff;
+    }
+
+    .btn.mint {
+      background: var(--pop-mint);
+      color: var(--ink);
+    }
+
+    .btn:hover {
+      transform: translate(-2px, -2px);
+    }
+
+    section {
+      position: relative;
+      background: var(--surface);
+      border: 3px solid var(--border);
+      border-radius: 24px;
+      padding: 1.8rem 1.5rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 2rem;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 1.1rem;
+    }
+
+    .section-lead {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    /* イラストマップエリア */
+    .map-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1.15rem;
+    }
+
+    .map-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .map-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+    }
+
+    .legend-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.82rem;
+      font-weight: 800;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      border: 2px solid var(--border);
+      background: #fffdf5;
+    }
+
+    .dot-shop {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--pop-coral);
+      border: 1.5px solid var(--border);
+    }
+
+    .dot-spot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--pop-blue);
+      border: 1.5px solid var(--border);
+    }
+
+    .dot-trivia {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--pop-yellow);
+      border: 1.5px solid var(--border);
+    }
+
+    .bubble-toggle-btn {
+      font-family: inherit;
+      font-size: 0.84rem;
+      font-weight: 800;
+      color: var(--ink);
+      background: var(--pop-mint);
+      border: 2px solid var(--border);
+      border-radius: 999px;
+      padding: 0.32rem 0.85rem;
+      box-shadow: 2px 2px 0 var(--border);
+      cursor: pointer;
+      transition: transform 0.12s ease, background-color 0.12s ease;
+    }
+
+    .bubble-toggle-btn:hover {
+      transform: translate(-1px, -1px);
+    }
+
+    .bubble-toggle-btn.is-on {
+      background: var(--pop-yellow);
+    }
+
+    .map-stage {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      min-height: 340px;
+      border: 3px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      background: #e3fafc;
+      box-shadow: inset 0 0 0 2px #ffffff88;
+    }
+
+    .map-svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* クリック可能なイラスト群 */
+    .clickable-art {
+      cursor: pointer;
+    }
+
+    .clickable-art:focus-visible {
+      outline: 3px dashed #1e293b;
+      outline-offset: 4px;
+    }
+
+    .clickable-art:hover .art-hit-ring,
+    .clickable-art.is-art-active .art-hit-ring {
+      opacity: 1;
+    }
+
+    .art-hit-ring {
+      fill: #ffffff;
+      fill-opacity: 0.35;
+      stroke: #1e293b;
+      stroke-width: 2;
+      stroke-dasharray: 5 4;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+    }
+
+    /* マップ内キャラ＆乗り物アニメーション */
+    .squid-swim {
+      animation: squidBob 3.2s ease-in-out infinite;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+
+    .kirarin-hop {
+      animation: kirarinBounce 2.6s ease-in-out infinite;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+
+    .train-glide {
+      animation: trainCruise 4.5s ease-in-out infinite;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+
+    @keyframes squidBob {
+      0%, 100% {
+        transform: translate(0, 0) rotate(-3deg);
+      }
+      50% {
+        transform: translate(6px, -6px) rotate(4deg);
+      }
+    }
+
+    @keyframes kirarinBounce {
+      0%, 100% {
+        transform: translateY(0) scale(1);
+      }
+      50% {
+        transform: translateY(-5px) scale(1.04);
+      }
+    }
+
+    @keyframes trainCruise {
+      0%, 100% {
+        transform: translate(-6px, -2px);
+      }
+      50% {
+        transform: translate(8px, 2px);
+      }
+    }
+
+    /* イラスト近辺の豆知識吹き出し */
+    .map-bubble {
+      position: absolute;
+      z-index: 18;
+      max-width: min(215px, 56vw);
+      background: #ffffff;
+      border: 2.5px solid var(--border);
+      border-radius: 15px;
+      padding: 0.42rem 0.62rem;
+      box-shadow: 3px 3px 0 var(--border);
+      transform: translate(-50%, -112%);
+      pointer-events: auto;
+    }
+
+    .map-bubble::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -8px;
+      transform: translateX(-50%) rotate(45deg);
+      width: 11px;
+      height: 11px;
+      background: #ffffff;
+      border-right: 2.5px solid var(--border);
+      border-bottom: 2.5px solid var(--border);
+    }
+
+    .map-bubble-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.35rem;
+      margin-bottom: 0.14rem;
+    }
+
+    .map-bubble-title {
+      font-size: 0.74rem;
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    .map-bubble-close {
+      border: 1.5px solid var(--border);
+      background: #fff9db;
+      color: var(--ink);
+      border-radius: 999px;
+      width: 18px;
+      height: 18px;
+      font-size: 0.68rem;
+      font-weight: 800;
+      line-height: 1;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .map-bubble-text {
+      font-size: 0.7rem;
+      line-height: 1.35;
+      color: var(--muted);
+    }
+
+    /* ポインタ横のミニ情報カード（ホバー中のみ表示） */
+    .map-hover-card {
+      position: absolute;
+      z-index: 25;
+      width: min(252px, 68vw);
+      background: #fffdf5;
+      border: 2.5px solid var(--border);
+      border-radius: 14px;
+      padding: 0.52rem 0.68rem;
+      box-shadow: 3px 3px 0 var(--border);
+      pointer-events: none;
+      transform: translate(12px, -50%);
+      display: none;
+    }
+
+    .map-hover-card.is-visible {
+      display: block;
+    }
+
+    .map-hover-card.is-flip-left {
+      transform: translate(calc(-100% - 12px), -50%);
+    }
+
+    .hover-card-badge {
+      display: inline-block;
+      font-size: 0.66rem;
+      font-weight: 800;
+      padding: 0.08rem 0.45rem;
+      border-radius: 999px;
+      border: 1.5px solid var(--border);
+      background: #ffe3e3;
+      margin-bottom: 0.24rem;
+    }
+
+    .hover-card-badge.is-spot {
+      background: #c5f6fa;
+    }
+
+    .hover-card-body-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .hover-card-thumb {
+      width: 56px;
+      height: 44px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1.5px solid var(--border);
+      background: #e2e8f0;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .hover-card-text-col {
+      min-width: 0;
+      flex: 1;
+    }
+
+    .hover-card-title {
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--ink);
+      line-height: 1.28;
+      margin-bottom: 0.14rem;
+    }
+
+    .hover-card-place {
+      font-size: 0.66rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.18rem;
+      word-break: break-all;
+    }
+
+    .hover-card-desc {
+      font-size: 0.68rem;
+      line-height: 1.35;
+      color: var(--muted);
+    }
+
+    .map-pin {
+      position: absolute;
+      transform: translate(-50%, -88%);
+      z-index: 5;
+      cursor: pointer;
+      border: 2.5px solid var(--border);
+      border-radius: 999px;
+      padding: 0.28rem 0.65rem;
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--ink);
+      background: #fff;
+      box-shadow: 2.5px 2.5px 0 var(--border);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      white-space: nowrap;
+      transition: transform 0.14s ease, background-color 0.14s ease, z-index 0.14s ease;
+    }
+
+    .map-pin.is-shop {
+      background: #ffe3e3;
+    }
+
+    .map-pin.is-spot {
+      background: #c5f6fa;
+    }
+
+    .map-pin:hover,
+    .map-pin:focus-visible {
+      transform: translate(-50%, -96%) scale(1.06);
+      z-index: 12;
+      outline: none;
+    }
+
+    .map-pin.is-active {
+      background: var(--pop-yellow);
+      transform: translate(-50%, -100%) scale(1.1);
+      z-index: 15;
+      box-shadow: 3.5px 3.5px 0 var(--border);
+    }
+
+    .map-detail-panel {
+      background: #fffdf5;
+      border: 2.5px solid var(--border);
+      border-radius: 18px;
+      padding: 1.15rem 1.25rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0.55rem;
+    }
+
+    .map-detail-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .map-detail-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+    }
+
+    .map-detail-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.25rem;
+    }
+
+    /* カードグリッド */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .item-card {
+      position: relative;
+      background: #fffdf5;
+      border: 2.5px solid var(--border);
+      border-radius: 18px;
+      padding: 1.15rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.75rem;
+      overflow: hidden;
+      transition: transform 0.15s ease;
+    }
+
+    .item-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .item-card.is-highlighted {
+      background: #fff9db;
+      box-shadow: 0 0 0 3px var(--pop-yellow), var(--shadow);
+    }
+
+    /* カード上部エフェクト */
+    .effect-layer {
+      position: relative;
+      width: 100%;
+      height: 36px;
+      margin-bottom: -8px;
+      pointer-events: none;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 0.25rem;
+    }
+
+    .effect-badge {
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 0.1rem 0.5rem;
+      border-radius: 999px;
+      border: 1.5px solid var(--border);
+    }
+
+    .effect-bakery .effect-badge {
+      background: #ffe8cc;
+      color: #c2410c;
+    }
+
+    .effect-splash .effect-badge {
+      background: #d3f9d8;
+      color: #0b7285;
+    }
+
+    .effect-sweet .effect-badge {
+      background: #fff0f6;
+      color: #c92a2a;
+    }
+
+    .effect-svg {
+      width: 124px;
+      height: 36px;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .bakery-wisp {
+      fill: none;
+      stroke: #ff7a00;
+      stroke-width: 2.8;
+      stroke-linecap: round;
+      transform-box: fill-box;
+      transform-origin: center bottom;
+    }
+
+    .bakery-dot {
+      fill: #ff922b;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+
+    .wisp-1 {
+      animation: steamRiseLeft 2.7s ease-in-out infinite;
+    }
+
+    .wisp-2 {
+      animation: steamRiseCenter 3.1s ease-in-out 0.55s infinite;
+    }
+
+    .wisp-3 {
+      animation: steamRiseRight 2.5s ease-in-out 1.05s infinite;
+    }
+
+    .bakery-dot {
+      animation: sparkPop 2.4s ease-in-out 0.3s infinite;
+    }
+
+    .bubble-cyan {
+      fill: #22b8cf;
+      stroke: #1e293b;
+      stroke-width: 1.2;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+
+    .bubble-mint {
+      fill: #38d9a9;
+      stroke: #1e293b;
+      stroke-width: 1.2;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+
+    .splash-arc {
+      fill: none;
+      stroke: #22b8cf;
+      stroke-width: 2.3;
+      stroke-linecap: round;
+      transform-box: fill-box;
+      transform-origin: center bottom;
+    }
+
+    .b-1 {
+      animation: bubbleFloatA 2.6s ease-in-out infinite;
+    }
+
+    .b-2 {
+      animation: bubbleFloatB 3.0s ease-in-out 0.5s infinite;
+    }
+
+    .b-3 {
+      animation: bubbleFloatA 2.4s ease-in-out 0.95s infinite;
+    }
+
+    .s-1 {
+      animation: splashBounce 2.2s ease-in-out 0.2s infinite;
+    }
+
+    .sweet-wisp {
+      fill: none;
+      stroke: #ff6b6b;
+      stroke-width: 2.3;
+      stroke-linecap: round;
+      transform-box: fill-box;
+      transform-origin: center bottom;
+    }
+
+    .hero-wisp-a {
+      animation: heroSteamFloat 3.6s ease-in-out infinite;
+      transform-box: fill-box;
+      transform-origin: center bottom;
+    }
+
+    .hero-wisp-b {
+      animation: heroSteamFloat 4.2s ease-in-out 1.2s infinite;
+      transform-box: fill-box;
+      transform-origin: center bottom;
+    }
+
+    @keyframes steamRiseLeft {
+      0% {
+        opacity: 0;
+        transform: translate(0, 7px) scale(0.85);
+      }
+      25% {
+        opacity: 0.95;
+      }
+      75% {
+        opacity: 0.6;
+      }
+      100% {
+        opacity: 0;
+        transform: translate(-5px, -13px) scale(1.15);
+      }
+    }
+
+    @keyframes steamRiseCenter {
+      0% {
+        opacity: 0;
+        transform: translate(0, 8px) scale(0.8);
+      }
+      30% {
+        opacity: 1;
+      }
+      80% {
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 0;
+        transform: translate(3px, -15px) scale(1.18);
+      }
+    }
+
+    @keyframes steamRiseRight {
+      0% {
+        opacity: 0;
+        transform: translate(0, 7px) scale(0.85);
+      }
+      25% {
+        opacity: 0.9;
+      }
+      75% {
+        opacity: 0.55;
+      }
+      100% {
+        opacity: 0;
+        transform: translate(6px, -12px) scale(1.12);
+      }
+    }
+
+    @keyframes sparkPop {
+      0%, 100% {
+        opacity: 0.25;
+        transform: translateY(4px) scale(0.8);
+      }
+      50% {
+        opacity: 0.95;
+        transform: translateY(-7px) scale(1.2);
+      }
+    }
+
+    @keyframes bubbleFloatA {
+      0% {
+        opacity: 0;
+        transform: translateY(8px) scale(0.75);
+      }
+      30% {
+        opacity: 0.95;
+      }
+      80% {
+        opacity: 0.75;
+      }
+      100% {
+        opacity: 0;
+        transform: translate(-3px, -13px) scale(1.15);
+      }
+    }
+
+    @keyframes bubbleFloatB {
+      0% {
+        opacity: 0;
+        transform: translateY(9px) scale(0.7);
+      }
+      35% {
+        opacity: 0.95;
+      }
+      80% {
+        opacity: 0.7;
+      }
+      100% {
+        opacity: 0;
+        transform: translate(4px, -14px) scale(1.2);
+      }
+    }
+
+    @keyframes splashBounce {
+      0%, 100% {
+        opacity: 0.35;
+        transform: translateY(3px) scale(0.9);
+      }
+      50% {
+        opacity: 0.95;
+        transform: translateY(-6px) scale(1.1);
+      }
+    }
+
+    @keyframes heroSteamFloat {
+      0% {
+        opacity: 0;
+        transform: translate(0, 14px) scale(0.9);
+      }
+      30% {
+        opacity: 0.75;
+      }
+      85% {
+        opacity: 0.35;
+      }
+      100% {
+        opacity: 0;
+        transform: translate(-8px, -28px) scale(1.18);
+      }
+    }
+
+    .photo-wrap {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      border-radius: 12px;
+      border: 2px solid var(--border);
+      overflow: hidden;
+      background: #e2e8f0;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-align: center;
+      padding: 0.5rem;
+    }
+
+    .photo-wrap.is-error {
+      background: #fff5f5;
+      color: #c92a2a;
+    }
+
+    .photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .item-tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 800;
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      border: 1.5px solid var(--border);
+      background: #c5f6fa;
+      margin-bottom: 0.45rem;
+    }
+
+    .shop-tag {
+      background: #ffe3e3;
+    }
+
+    .trivia-tag {
+      background: #fff3bf;
+    }
+
+    .item-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .item-place {
+      font-size: 0.83rem;
+      font-weight: 700;
+      color: var(--ink);
+      background: #fff9db;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 0.25rem 0.55rem;
+      margin-bottom: 0.55rem;
+      display: inline-block;
+    }
+
+    .item-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .item-link {
+      align-self: flex-start;
+      display: inline-block;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--ink);
+      background: #fff9db;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      padding: 0.35rem 0.7rem;
+      transition: transform 0.12s ease, background-color 0.12s ease;
+    }
+
+    .item-link:hover {
+      background: var(--pop-yellow);
+      transform: translate(-1px, -1px);
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .video-box {
+      border: 2.5px solid var(--border);
+      border-radius: 18px;
+      padding: 1.1rem;
+      background: #f8fafc;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .video-box h3 {
+      font-size: 1.08rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .video-box p {
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .video-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 12px;
+      border: 2px solid var(--border);
+      overflow: hidden;
+      background: #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .video-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    .watch-link {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--ink);
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 1rem;
+    }
+
+    @media (max-width: 600px) {
+      .map-pin {
+        font-size: 0.7rem;
+        padding: 0.22rem 0.5rem;
+      }
+      .map-bubble {
+        max-width: 150px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .wisp-1,
+      .wisp-2,
+      .wisp-3,
+      .bakery-dot,
+      .b-1,
+      .b-2,
+      .b-3,
+      .s-1,
+      .hero-wisp-a,
+      .hero-wisp-b,
+      .squid-swim,
+      .kirarin-hop,
+      .train-glide {
+        animation: none;
+        opacity: 0.8;
+      }
+      .item-card:hover,
+      .btn:hover,
+      nav a:hover,
+      .item-link:hover,
+      .bubble-toggle-btn:hover {
+        transform: none;
+      }
+      .map-pin:hover,
+      .map-pin.is-active {
+        transform: translate(-50%, -88%);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-wrap">
+      <a class="logo" href="#">きらっと滑川！</a>
+      <nav>
+        <a href="#map-section">イラストマップ</a>
+        <a href="#shops">おすすめ店舗</a>
+        <a href="#spots">観光スポット</a>
+        <a href="#videos">動画コーナー</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <svg class="hero-steam" viewBox="0 0 140 160" aria-hidden="true">
+        <g class="hero-wisp-a">
+          <path
+            d="M36 145 C 22 120, 52 102, 34 74 C 20 52, 46 34, 34 14"
+            fill="none"
+            stroke="#ff7a00"
+            stroke-width="4"
+            stroke-linecap="round"
+          />
+          <circle cx="34" cy="10" r="4" fill="#ffd43b" />
+        </g>
+        <g class="hero-wisp-b">
+          <path
+            d="M84 150 C 70 124, 102 104, 82 76 C 68 54, 96 36, 82 18"
+            fill="none"
+            stroke="#22b8cf"
+            stroke-width="4"
+            stroke-linecap="round"
+          />
+          <circle cx="82" cy="12" r="4.5" fill="#38d9a9" />
+        </g>
+      </svg>
+
+      <div class="hero-content">
+        <span class="badge">富山県滑川市 × わくわく特集</span>
+        <h1>海も山も笑顔もいっぱい！<br />滑川市の推し店舗・観光＆動画集</h1>
+        <p>
+          甘いスイーツや焼きたてパン、落ち着いたカフェの「おすすめ店舗」と、自然あふれる公園や体験施設の「観光スポット」を別枠でご紹介！
+          大きなイラストマップのポイントやキャラクターをクリックして、情報と豆知識をチェックしてください。
+        </p>
+        <div class="cta-group">
+          <a class="btn" href="#map-section">マップで探す</a>
+          <a class="btn" href="#shops">おすすめ店舗を見る</a>
+          <a class="btn mint" href="#spots">観光スポットを見る</a>
+          <a class="btn secondary" href="#videos">動画を観る</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 大きなイラストマップ -->
+    <section id="map-section">
+      <h2 class="section-title">🗺️ 滑川市イラストマップ（ポイントやイラストをクリック！）</h2>
+      <p class="section-lead">
+        スポットのピンにマウスポインタを乗せると、ポインタの横に小さな概要カードが表示されます（画像設定済みのスポットはミニサムネイルも表示）。
+      </p>
+
+      <div class="map-wrapper">
+        <div class="map-toolbar">
+          <div class="map-legend">
+            <span class="legend-chip"><span class="dot-shop"></span> おすすめ店舗</span>
+            <span class="legend-chip"><span class="dot-spot"></span> 観光スポット</span>
+            <span class="legend-chip"><span class="dot-trivia"></span> 豆知識イラスト</span>
+          </div>
+          <button
+            id="toggle-all-bubbles-btn"
+            type="button"
+            class="bubble-toggle-btn"
+            aria-pressed="true"
+          >
+            💬 豆知識吹き出しをまとめて非表示
+          </button>
+        </div>
+
+        <div id="map-stage" class="map-stage">
+          <svg class="map-svg" viewBox="0 0 800 500" aria-label="滑川市の簡単な地形とホタルイカ・きらりん・電車のイラストマップ">
+            <!-- 空・背景 -->
+            <rect x="0" y="0" width="800" height="500" fill="#fff9db" />
+
+            <!-- 左側：富山湾の海 -->
+            <path d="M0 0 L215 0 Q175 180, 230 340 Q255 420, 220 500 L0 500 Z" fill="#99e9f2" stroke="#1e293b" stroke-width="3" />
+            <!-- 波のイラスト -->
+            <path d="M35 110 Q65 95, 95 110 T155 110" fill="none" stroke="#1098ad" stroke-width="3.5" stroke-linecap="round" />
+            <path d="M50 220 Q85 205, 120 220 T190 220" fill="none" stroke="#1098ad" stroke-width="3.5" stroke-linecap="round" />
+            <path d="M30 350 Q65 335, 100 350 T175 350" fill="none" stroke="#1098ad" stroke-width="3.5" stroke-linecap="round" />
+            <text x="85" y="62" font-size="22" font-weight="800" fill="#0b7285">富山湾（海）</text>
+
+            <!-- ホタルイカイラスト（クリック可能・海エリア） -->
+            <g
+              id="art-squid"
+              class="clickable-art"
+              role="button"
+              tabindex="0"
+              aria-label="ホタルイカの豆知識を見る"
+              transform="translate(88, 152)"
+            >
+              <circle class="art-hit-ring" cx="0" cy="0" r="28" />
+              <g class="squid-swim">
+                <circle cx="0" cy="0" r="22" fill="#66d9e8" opacity="0.55" />
+                <path d="M-12 4 Q0 -16 12 4 Z" fill="#3bc9db" stroke="#1e293b" stroke-width="2" />
+                <path d="M-8 4 L-11 13 M-3 4 L-4 14 M2 4 L2 14 M7 4 L10 13" stroke="#1e293b" stroke-width="2" stroke-linecap="round" />
+                <circle cx="-4" cy="1" r="2.2" fill="#1e293b" />
+                <circle cx="4" cy="1" r="2.2" fill="#1e293b" />
+                <circle cx="0" cy="-5" r="2.4" fill="#ffd43b" />
+              </g>
+            </g>
+
+            <!-- 右側：山・東福寺野台地 -->
+            <path d="M540 500 Q560 280, 650 140 Q720 45, 800 30 L800 500 Z" fill="#b2f2bb" stroke="#1e293b" stroke-width="3" />
+            <path d="M620 290 Q690 150, 800 110 L800 500 L610 500 Z" fill="#8ce99a" stroke="#1e293b" stroke-width="2.5" />
+            <polygon points="695,120 655,195 735,195" fill="#40c057" stroke="#1e293b" stroke-width="2.5" />
+            <polygon points="755,85 710,175 800,175" fill="#2f9e44" stroke="#1e293b" stroke-width="2.5" />
+            <text x="615" y="455" font-size="20" font-weight="800" fill="#2b8a3e">東福寺野・山側</text>
+
+            <!-- 川の流れ -->
+            <path d="M235 470 Q360 360, 470 250 Q550 175, 645 125" fill="none" stroke="#66d9e8" stroke-width="14" stroke-linecap="round" />
+            <path d="M235 470 Q360 360, 470 250 Q550 175, 645 125" fill="none" stroke="#1e293b" stroke-width="2.5" stroke-dasharray="8 8" stroke-linecap="round" />
+
+            <!-- 鉄道・道路ライン -->
+            <path d="M210 60 Q380 180, 660 260" fill="none" stroke="#ffffff" stroke-width="12" stroke-linecap="round" />
+            <path d="M210 60 Q380 180, 660 260" fill="none" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round" />
+
+            <!-- 電車イラスト（クリック可能・路線ライン上） -->
+            <g
+              id="art-train"
+              class="clickable-art"
+              role="button"
+              tabindex="0"
+              aria-label="電車の豆知識を見る"
+              transform="translate(310, 120)"
+            >
+              <ellipse class="art-hit-ring" cx="0" cy="0" rx="34" ry="22" />
+              <g class="train-glide" transform="rotate(16)">
+                <rect x="-24" y="-11" width="48" height="18" rx="6" fill="#ffd43b" stroke="#1e293b" stroke-width="2.2" />
+                <rect x="-22" y="1" width="44" height="5" fill="#22b8cf" />
+                <rect x="-17" y="-7" width="8" height="6" rx="1.5" fill="#ffffff" stroke="#1e293b" stroke-width="1.5" />
+                <rect x="-5" y="-7" width="8" height="6" rx="1.5" fill="#ffffff" stroke="#1e293b" stroke-width="1.5" />
+                <rect x="7" y="-7" width="9" height="6" rx="1.5" fill="#ffffff" stroke="#1e293b" stroke-width="1.5" />
+                <circle cx="-13" cy="9" r="3.5" fill="#1e293b" />
+                <circle cx="13" cy="9" r="3.5" fill="#1e293b" />
+              </g>
+            </g>
+
+            <!-- 市街地ラベル -->
+            <rect x="315" y="42" width="170" height="34" rx="17" fill="#ffffff" stroke="#1e293b" stroke-width="2.5" />
+            <text x="400" y="65" text-anchor="middle" font-size="16" font-weight="800" fill="#1e293b">滑川エリア</text>
+
+            <!-- きらりん風イラスト（クリック可能・街エリア） -->
+            <g
+              id="art-kirarin"
+              class="clickable-art"
+              role="button"
+              tabindex="0"
+              aria-label="きらりんの豆知識を見る"
+              transform="translate(476, 108)"
+            >
+              <circle class="art-hit-ring" cx="0" cy="-4" r="32" />
+              <g class="kirarin-hop">
+                <circle cx="0" cy="0" r="18" fill="#ffe066" stroke="#1e293b" stroke-width="2.2" />
+                <path d="M0 -27 L2.5 -21 L8.5 -19 L2.5 -17 L0 -11 L-2.5 -17 L-8.5 -19 L-2.5 -21 Z" fill="#ff6b6b" stroke="#1e293b" stroke-width="1.2" />
+                <circle cx="-6" cy="-1" r="2.2" fill="#1e293b" />
+                <circle cx="6" cy="-1" r="2.2" fill="#1e293b" />
+                <circle cx="-9" cy="4" r="2.5" fill="#ff8787" opacity="0.8" />
+                <circle cx="9" cy="4" r="2.5" fill="#ff8787" opacity="0.8" />
+                <path d="M-4 4 Q0 8 4 4" fill="none" stroke="#1e293b" stroke-width="2" stroke-linecap="round" />
+              </g>
+            </g>
+          </svg>
+
+          <!-- ポインタ横に表示されるミニカード -->
+          <div id="map-hover-card" class="map-hover-card" role="tooltip" aria-hidden="true"></div>
+        </div>
+
+        <div id="map-detail-panel" class="map-detail-panel" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- 別枠 1: おすすめ店舗 -->
+    <section id="shops">
+      <h2 class="section-title">🍰 おすすめ店舗</h2>
+      <div id="shop-list" class="card-grid"></div>
+    </section>
+
+    <!-- 別枠 2: 観光スポット -->
+    <section id="spots">
+      <h2 class="section-title">🌿 観光スポット</h2>
+      <div id="spot-list" class="card-grid"></div>
+    </section>
+
+    <!-- 別枠 3: 動画コーナー -->
+    <section id="videos">
+      <h2 class="section-title">🎬 「滑らない町滑川」＆「きらりん」動画コーナー</h2>
+      <div id="video-list" class="video-grid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>✨ 滑川市の魅力をお届け ✨ | Built for GitHub Pages</p>
+  </footer>
+
+  <script>
+    const SHOP_ITEMS = [
+      {
+        id: "recompense",
+        tag: "スイーツ・ケーキ",
+        effect: "sweet",
+        x: 42,
+        y: 34,
+        title: "レコンパンスルージュ",
+        place: "場所：富山県滑川市大崎野43-1",
+        image: "./images/recompense.jpg",
+        imageAlt: "1枚目：レコンパンスルージュの外観",
+        description: "苺のスイーツが魅力のケーキ専門店。ショーケースに並ぶ華やかなケーキや店内の可愛らしい雰囲気を楽しめます。",
+        url: "https://tabelog.com/toyama/A1602/A160202/16009693/dtlphotolst/smp2/",
+        linkLabel: "食べログ写真ページを見る ↗"
+      },
+      {
+        id: "toaru",
+        tag: "パン・ベーカリー",
+        effect: "bakery",
+        x: 53,
+        y: 56,
+        title: "パン工房とある",
+        place: "場所：富山県滑川市下野218-2",
+        image: "./images/toaru.jpg",
+        imageAlt: "2枚目：パン工房とあるの焼きたてパンと店内",
+        description: "木のぬくもりを感じる店内にこだわりパンが並ぶお店。おさんぽのお供や手土産にもぴったりです。",
+        url: "https://www.pankobo-toaru.jp/",
+        linkLabel: "公式サイトを見る ↗"
+      },
+      {
+        id: "okanoue",
+        tag: "カフェ・ひと休み",
+        effect: "bakery",
+        x: 62,
+        y: 69,
+        title: "丘の上のまる",
+        place: "場所：富山県滑川市下野196-4 周辺",
+        image: "./images/okanoue-maru.webp",
+        imageAlt: "3枚目：丘の上のまるの窓辺と星形照明の店内",
+        description: "落ち着いた雰囲気の中でランチやティータイムを楽しめるカフェ。滑川ののんびりとした時間を味わえます。",
+        url: "https://namerikawa-kanko.jp/",
+        linkLabel: "滑川市観光協会を見る ↗"
+      }
+    ];
+
+    const SPOT_ITEMS = [
+      {
+        id: "tofukujino",
+        tag: "山・自然公園",
+        effect: "splash",
+        x: 81,
+        y: 36,
+        title: "東福寺野自然公園",
+        place: "場所：〒936-0823 富山県滑川市東福寺野字下平",
+        image: "./images/tofukujino.jpg",
+        imageAlt: "4枚目：東福寺野自然公園の建物と展望風景",
+        description: "標高300mの台地に広がる自然豊かな公園。晴れた日には富山湾を一望でき、ふわふわドームやパークゴルフ場、バーベキュー場、SLハウスなどが楽しめます。",
+        url: "https://bunspo-namerikawa.jp/nature",
+        linkLabel: "施設案内を見る ↗"
+      },
+      {
+        id: "gyoden",
+        tag: "自然・おさんぽ",
+        effect: "splash",
+        x: 34,
+        y: 77,
+        title: "行田公園",
+        place: "場所：富山県滑川市行田",
+        image: "./images/gyoden.jpg",
+        imageAlt: "5枚目：行田公園の湧き水と花しょうぶの風景",
+        description: "湧き水のせせらぎや季節ごとの花々を楽しめる公園。春は桜、初夏は花しょうぶが見どころです。",
+        url: "https://www.city.namerikawa.toyama.jp/soshiki/17/19/1484.html",
+        linkLabel: "滑川市案内ページ ↗"
+      },
+      {
+        id: "hotaruika",
+        tag: "海・体験",
+        effect: "splash",
+        x: 18,
+        y: 52,
+        title: "ホタルイカミュージアム",
+        place: "場所：富山県滑川市中川原410",
+        image: "./images/hotaruika.jpg",
+        imageAlt: "6枚目：ホタルイカミュージアムの外観",
+        description: "ホタルイカの光る世界や生き物に触れられる人気スポット。道の駅ウェーブパークなめりかわに隣接しています。",
+        url: "https://hotaruikamuseum.com/",
+        linkLabel: "公式サイトを見る ↗"
+      }
+    ];
+
+    const ART_TRIVIA = {
+      squid: {
+        elementId: "art-squid",
+        xPercent: 12,
+        yPercent: 27,
+        bubbleTitle: "🦑 ホタルイカ豆知識",
+        bubbleText: "富山湾の春を告げる神秘の光！滑川市の海はホタルイカ群遊海面としても有名です。",
+        panelBadge: "豆知識・富山湾の海",
+        panelTitle: "ホタルイカ＆「滑らない町」の海のめぐみ",
+        description: "ホタルイカは体の先端や腕の発光器から青白く光ります。滑川市では「滑らない（＝すべらない・落ちない）」にちなんだご当地企画も親しまれています。",
+        anchor: "#spots",
+        anchorLabel: "ホタルイカミュージアムを見る ↓"
+      },
+      train: {
+        elementId: "art-train",
+        xPercent: 39,
+        yPercent: 20,
+        bubbleTitle: "🚃 電車・さんぽ豆知識",
+        bubbleText: "海から街・山麓へとつながる路線を活かして、のんびり町歩きやカフェめぐりが楽しめます。",
+        panelBadge: "豆知識・まちあるき",
+        panelTitle: "駅や路線から巡る滑川市さんぽ",
+        description: "富山湾沿いのエリアから市街地・湧き水公園や東福寺野台地まで、日帰りさんぽで海・街・自然のコントラストを楽しめます。",
+        anchor: "#shops",
+        anchorLabel: "おすすめ店舗を見る ↓"
+      },
+      kirarin: {
+        elementId: "art-kirarin",
+        xPercent: 64,
+        yPercent: 17,
+        bubbleTitle: "✨ きらりん豆知識",
+        bubbleText: "滑川市の魅力をきらっと発信するイメージキャラクター！動画コーナーでも元気いっぱいです。",
+        panelBadge: "豆知識・滑川キャラクター",
+        panelTitle: "「きらりん」＆ダンス動画をチェック",
+        description: "滑川市のPRやイベントで親しまれるキャラクター。動画コーナーでは「きらりん＆ピッカ」が踊る楽しい動画もチェックできます。",
+        anchor: "#videos",
+        anchorLabel: "動画コーナーへ移動 ↓"
+      }
+    };
+
+    const VIDEO_ITEMS = [
+      {
+        title: "「滑らない町滑川」関連動画",
+        description: "「滑らない」テーマや滑川めぐりの動画です！",
+        url: "https://www.youtube.com/watch?v=XAMD9tlVETE"
+      },
+      {
+        title: "きらりん＆ピッカがピコピコ レボリューションと踊ってみた",
+        description: "滑川市の「きらりん」と「ピッカ」が元気いっぱいに踊る動画です！",
+        url: "https://www.youtube.com/watch?v=gg7JW0hS31o"
+      }
+    ];
+
+    const brokenImageUrls = new Set();
+
+    function escapeAttr(str) {
+      return String(str || "")
+        .replace(/&/g, "&amp;")
+        .replace(/"/g, "&quot;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+    }
+
+    function resolveEffectKind(item, isShop) {
+      if (item.effect) return item.effect;
+      const text = `${item.tag || ""} ${item.title || ""}`;
+      if (/パン|ベーカリー|カフェ|コーヒー|ランチ|とある|丘の上/.test(text)) {
+        return "bakery";
+      }
+      if (/公園|ミュージアム|海|湧き水|自然|水/.test(text)) {
+        return "splash";
+      }
+      if (/スイーツ|ケーキ|苺/.test(text)) {
+        return "sweet";
+      }
+      return isShop ? "bakery" : "splash";
+    }
+
+    function createEffectLayer(item, isShop) {
+      const kind = resolveEffectKind(item, isShop);
+      const layer = document.createElement("div");
+      layer.className = `effect-layer effect-${kind}`;
+      layer.setAttribute("aria-hidden", "true");
+
+      if (kind === "bakery") {
+        layer.innerHTML = `
+          <span class="effect-badge">🔥 焼き立て湯気</span>
+          <svg class="effect-svg" viewBox="0 0 124 36">
+            <path class="bakery-wisp wisp-1" d="M22 32 C 16 23, 28 16, 21 7" />
+            <path class="bakery-wisp wisp-2" d="M56 33 C 49 22, 64 15, 56 6" />
+            <path class="bakery-wisp wisp-3" d="M90 32 C 84 23, 96 16, 89 7" />
+            <circle class="bakery-dot" cx="109" cy="15" r="3.2" />
+            <circle class="bakery-dot" cx="39" cy="11" r="2.5" />
+          </svg>
+        `;
+      } else if (kind === "splash") {
+        layer.innerHTML = `
+          <span class="effect-badge">💧 水しぶき・泡</span>
+          <svg class="effect-svg" viewBox="0 0 124 36">
+            <path class="splash-arc s-1" d="M16 27 Q 25 14, 34 26" />
+            <circle class="bubble-cyan b-1" cx="48" cy="22" r="5.2" />
+            <circle class="bubble-mint b-2" cx="68" cy="15" r="6.2" />
+            <circle class="bubble-cyan b-3" cx="89" cy="21" r="4.8" />
+            <circle class="bubble-mint b-1" cx="107" cy="13" r="3.8" />
+          </svg>
+        `;
+      } else {
+        layer.innerHTML = `
+          <span class="effect-badge">🍓 甘い香り</span>
+          <svg class="effect-svg" viewBox="0 0 124 36">
+            <path class="sweet-wisp wisp-1" d="M26 31 C 21 23, 31 17, 25 9" />
+            <path class="sweet-wisp wisp-2" d="M62 32 C 57 22, 68 16, 62 8" />
+            <path class="sweet-wisp wisp-3" d="M96 31 C 91 23, 101 17, 95 9" />
+          </svg>
+        `;
+      }
+
+      return layer;
+    }
+
+    function renderCards(items, containerId, isShop) {
+      const container = document.getElementById(containerId);
+      items.forEach((item) => {
+        const card = document.createElement("article");
+        card.className = "item-card";
+        card.dataset.itemId = item.id;
+
+        const topDiv = document.createElement("div");
+
+        topDiv.appendChild(createEffectLayer(item, isShop));
+
+        const photoWrap = document.createElement("div");
+        photoWrap.className = "photo-wrap";
+
+        const trimmedUrl = item.image ? String(item.image).trim() : "";
+        if (trimmedUrl && !brokenImageUrls.has(trimmedUrl)) {
+          const img = document.createElement("img");
+          img.src = trimmedUrl;
+          img.alt = item.imageAlt || item.title;
+          img.addEventListener("error", () => {
+            brokenImageUrls.add(trimmedUrl);
+            img.remove();
+            photoWrap.classList.add("is-error");
+            photoWrap.textContent = `画像を読み込めませんでした（${trimmedUrl}）`;
+          });
+          photoWrap.appendChild(img);
+        } else if (trimmedUrl && brokenImageUrls.has(trimmedUrl)) {
+          photoWrap.classList.add("is-error");
+          photoWrap.textContent = `画像を読み込めませんでした（${trimmedUrl}）`;
+        } else {
+          photoWrap.textContent = "写真をここに表示（image に画像パスを設定）";
+        }
+
+        const tag = document.createElement("span");
+        tag.className = isShop ? "item-tag shop-tag" : "item-tag";
+        tag.textContent = item.tag;
+
+        const h3 = document.createElement("h3");
+        h3.textContent = item.title;
+
+        const place = document.createElement("div");
+        place.className = "item-place";
+        place.textContent = item.place;
+
+        const p = document.createElement("p");
+        p.textContent = item.description;
+
+        topDiv.appendChild(photoWrap);
+        topDiv.appendChild(tag);
+        topDiv.appendChild(h3);
+        if (item.place) topDiv.appendChild(place);
+        topDiv.appendChild(p);
+        card.appendChild(topDiv);
+
+        if (item.url) {
+          const a = document.createElement("a");
+          a.className = "item-link";
+          a.href = item.url;
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+          a.textContent = item.linkLabel || "詳しく見る ↗";
+          card.appendChild(a);
+        }
+
+        container.appendChild(card);
+      });
+    }
+
+    renderCards(SHOP_ITEMS, "shop-list", true);
+    renderCards(SPOT_ITEMS, "spot-list", false);
+
+    const allMapItems = [
+      ...SHOP_ITEMS.map((item) => ({ ...item, isShop: true })),
+      ...SPOT_ITEMS.map((item) => ({ ...item, isShop: false }))
+    ];
+
+    const mapStage = document.getElementById("map-stage");
+    const detailPanel = document.getElementById("map-detail-panel");
+    const toggleAllBtn = document.getElementById("toggle-all-bubbles-btn");
+    const hoverCard = document.getElementById("map-hover-card");
+    const pinElements = new Map();
+    const activeBubbles = new Map();
+
+    function positionHoverCard(clientX, clientY) {
+      const rect = mapStage.getBoundingClientRect();
+      const relX = clientX - rect.left;
+      const relY = clientY - rect.top;
+      const clampedX = Math.max(10, Math.min(rect.width - 10, relX));
+      const clampedY = Math.max(54, Math.min(rect.height - 54, relY));
+
+      const shouldFlipLeft = relX > rect.width * 0.65;
+      hoverCard.classList.toggle("is-flip-left", shouldFlipLeft);
+      hoverCard.style.left = `${clampedX}px`;
+      hoverCard.style.top = `${clampedY}px`;
+    }
+
+    function showHoverCardForItem(item, clientX, clientY) {
+      const trimmedUrl = item.image ? String(item.image).trim() : "";
+      const canShowImage = Boolean(trimmedUrl && !brokenImageUrls.has(trimmedUrl));
+      const maxLen = canShowImage ? 40 : 56;
+      const shortDesc =
+        item.description.length > maxLen
+          ? `${item.description.slice(0, maxLen)}…`
+          : item.description;
+      const categoryText = item.isShop ? "おすすめ店舗" : "観光スポット";
+
+      const thumbHtml = canShowImage
+        ? `<img class="hover-card-thumb" src="${escapeAttr(trimmedUrl)}" alt="${escapeAttr(item.imageAlt || item.title)}" />`
+        : "";
+
+      hoverCard.innerHTML = `
+        <span class="hover-card-badge ${item.isShop ? "" : "is-spot"}">${categoryText}・${escapeAttr(item.tag)}</span>
+        <div class="hover-card-body-row">
+          ${thumbHtml}
+          <div class="hover-card-text-col">
+            <div class="hover-card-title">${escapeAttr(item.title)}</div>
+            <div class="hover-card-place">${escapeAttr(item.place)}</div>
+            <div class="hover-card-desc">${escapeAttr(shortDesc)}</div>
+          </div>
+        </div>
+      `;
+
+      const thumbEl = hoverCard.querySelector(".hover-card-thumb");
+      if (thumbEl) {
+        thumbEl.addEventListener("error", () => {
+          brokenImageUrls.add(trimmedUrl);
+          thumbEl.remove();
+        });
+      }
+
+      hoverCard.classList.add("is-visible");
+      hoverCard.setAttribute("aria-hidden", "false");
+
+      if (typeof clientX === "number" && typeof clientY === "number") {
+        positionHoverCard(clientX, clientY);
+      } else {
+        const rect = mapStage.getBoundingClientRect();
+        positionHoverCard(
+          rect.left + (rect.width * item.x) / 100,
+          rect.top + (rect.height * item.y) / 100
+        );
+      }
+    }
+
+    function hideHoverCard() {
+      hoverCard.classList.remove("is-visible");
+      hoverCard.setAttribute("aria-hidden", "true");
+    }
+
+    function syncToggleButton() {
+      const anyOpen = activeBubbles.size > 0;
+      toggleAllBtn.classList.toggle("is-on", anyOpen);
+      toggleAllBtn.setAttribute("aria-pressed", String(anyOpen));
+      toggleAllBtn.textContent = anyOpen
+        ? "💬 豆知識吹き出しをまとめて非表示"
+        : "💬 豆知識吹き出しをまとめて表示";
+    }
+
+    function removeBubble(key) {
+      const existing = activeBubbles.get(key);
+      if (existing) {
+        existing.remove();
+        activeBubbles.delete(key);
+      }
+      const trivia = ART_TRIVIA[key];
+      if (trivia) {
+        const artNode = document.getElementById(trivia.elementId);
+        if (artNode) artNode.classList.remove("is-art-active");
+      }
+      syncToggleButton();
+    }
+
+    function clearAllBubbles() {
+      Array.from(activeBubbles.keys()).forEach((key) => removeBubble(key));
+      syncToggleButton();
+    }
+
+    function createBubbleForKey(key) {
+      const trivia = ART_TRIVIA[key];
+      if (!trivia || activeBubbles.has(key)) return;
+
+      const artNode = document.getElementById(trivia.elementId);
+      if (artNode) artNode.classList.add("is-art-active");
+
+      const bubble = document.createElement("div");
+      bubble.className = "map-bubble";
+      bubble.style.left = `${trivia.xPercent}%`;
+      bubble.style.top = `${trivia.yPercent}%`;
+      bubble.innerHTML = `
+        <div class="map-bubble-head">
+          <span class="map-bubble-title">${trivia.bubbleTitle}</span>
+          <button type="button" class="map-bubble-close" aria-label="${trivia.bubbleTitle}を閉じる">×</button>
+        </div>
+        <p class="map-bubble-text">${trivia.bubbleText}</p>
+      `;
+
+      bubble.querySelector(".map-bubble-close").addEventListener("click", (e) => {
+        e.stopPropagation();
+        removeBubble(key);
+      });
+
+      mapStage.appendChild(bubble);
+      activeBubbles.set(key, bubble);
+    }
+
+    function renderTriviaPanel(trivia) {
+      detailPanel.innerHTML = `
+        <div class="map-detail-top">
+          <div>
+            <span class="item-tag trivia-tag">${trivia.panelBadge}</span>
+            <h3 class="map-detail-title">${trivia.panelTitle}</h3>
+          </div>
+          <span class="item-place">イラストクリック豆知識</span>
+        </div>
+        <p style="font-size: 0.92rem; color: var(--muted);">${trivia.description}</p>
+        <div class="map-detail-actions">
+          <a class="item-link" href="${trivia.anchor}">${trivia.anchorLabel}</a>
+        </div>
+      `;
+    }
+
+    function handleArtClick(key) {
+      const trivia = ART_TRIVIA[key];
+      if (!trivia) return;
+
+      pinElements.forEach((btn) => btn.classList.remove("is-active"));
+      document.querySelectorAll(".item-card").forEach((card) => {
+        card.classList.remove("is-highlighted");
+      });
+
+      if (activeBubbles.has(key)) {
+        removeBubble(key);
+      } else {
+        createBubbleForKey(key);
+      }
+
+      renderTriviaPanel(trivia);
+      syncToggleButton();
+    }
+
+    toggleAllBtn.addEventListener("click", () => {
+      if (activeBubbles.size > 0) {
+        clearAllBubbles();
+      } else {
+        Object.keys(ART_TRIVIA).forEach((key) => createBubbleForKey(key));
+        renderTriviaPanel(ART_TRIVIA.squid);
+        syncToggleButton();
+      }
+    });
+
+    function selectMapItem(itemId) {
+      const target = allMapItems.find((entry) => entry.id === itemId);
+      if (!target) return;
+
+      pinElements.forEach((btn, id) => {
+        btn.classList.toggle("is-active", id === itemId);
+      });
+
+      document.querySelectorAll(".item-card").forEach((card) => {
+        card.classList.toggle("is-highlighted", card.dataset.itemId === itemId);
+      });
+
+      const categoryLabel = target.isShop ? "おすすめ店舗" : "観光スポット";
+      const anchorTarget = target.isShop ? `#shops` : `#spots`;
+
+      detailPanel.innerHTML = `
+        <div class="map-detail-top">
+          <div>
+            <span class="item-tag ${target.isShop ? "shop-tag" : ""}">${categoryLabel}・${target.tag}</span>
+            <h3 class="map-detail-title">${target.title}</h3>
+          </div>
+          <span class="item-place">${target.place}</span>
+        </div>
+        <p style="font-size: 0.92rem; color: var(--muted);">${target.description}</p>
+        <div class="map-detail-actions">
+          ${
+            target.url
+              ? `<a class="item-link" href="${target.url}" target="_blank" rel="noopener noreferrer">${target.linkLabel || "詳しく見る ↗"}</a>`
+              : ""
+          }
+          <a class="item-link" href="${anchorTarget}">一覧カードへ移動 ↓</a>
+        </div>
+      `;
+    }
+
+    Object.entries(ART_TRIVIA).forEach(([key, data]) => {
+      const artEl = document.getElementById(data.elementId);
+      if (!artEl) return;
+      artEl.addEventListener("click", () => handleArtClick(key));
+      artEl.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          handleArtClick(key);
+        }
+      });
+    });
+
+    allMapItems.forEach((item) => {
+      const pinBtn = document.createElement("button");
+      pinBtn.type = "button";
+      pinBtn.className = `map-pin ${item.isShop ? "is-shop" : "is-spot"}`;
+      pinBtn.style.left = `${item.x}%`;
+      pinBtn.style.top = `${item.y}%`;
+      pinBtn.innerHTML = `<span>${item.isShop ? "📍" : "🌿"}</span><span>${item.title}</span>`;
+
+      pinBtn.addEventListener("mouseenter", (e) => {
+        showHoverCardForItem(item, e.clientX, e.clientY);
+      });
+      pinBtn.addEventListener("mousemove", (e) => {
+        positionHoverCard(e.clientX, e.clientY);
+      });
+      pinBtn.addEventListener("mouseleave", hideHoverCard);
+      pinBtn.addEventListener("focusin", () => {
+        showHoverCardForItem(item);
+      });
+      pinBtn.addEventListener("focusout", hideHoverCard);
+      pinBtn.addEventListener("click", () => selectMapItem(item.id));
+
+      mapStage.appendChild(pinBtn);
+      pinElements.set(item.id, pinBtn);
+    });
+
+    mapStage.addEventListener("mouseleave", hideHoverCard);
+
+    // ページ読み込み時からホタルイカ・きらりん・電車の吹き出しをまとめて表示
+    Object.keys(ART_TRIVIA).forEach((key) => createBubbleForKey(key));
+    renderTriviaPanel(ART_TRIVIA.squid);
+    syncToggleButton();
+
+    function extractYouTubeId(rawUrl) {
+      if (!rawUrl) return null;
+      try {
+        const parsed = new URL(rawUrl.trim());
+        if (parsed.hostname === "youtu.be") {
+          return parsed.pathname.replace("/", "").split("/")[0] || null;
+        }
+        if (parsed.hostname.includes("youtube.com")) {
+          if (parsed.pathname === "/watch") {
+            return parsed.searchParams.get("v");
+          }
+          const parts = parsed.pathname.split("/").filter(Boolean);
+          const embedIndex = parts.findIndex((p) => p === "embed" || p === "shorts" || p === "live");
+          if (embedIndex !== -1 && parts[embedIndex + 1]) {
+            return parts[embedIndex + 1];
+          }
+        }
+      } catch (e) {
+        return null;
+      }
+      return null;
+    }
+
+    const videoContainer = document.getElementById("video-list");
+    VIDEO_ITEMS.forEach((item) => {
+      const videoId = extractYouTubeId(item.url);
+      const card = document.createElement("article");
+      card.className = "video-box";
+
+      const infoDiv = document.createElement("div");
+      const h3 = document.createElement("h3");
+      h3.textContent = item.title;
+      const p = document.createElement("p");
+      p.textContent = item.description;
+      infoDiv.appendChild(h3);
+      infoDiv.appendChild(p);
+
+      const frameDiv = document.createElement("div");
+      frameDiv.className = "video-frame";
+
+      if (videoId) {
+        const iframe = document.createElement("iframe");
+        iframe.src = `https://www.youtube.com/embed/${encodeURIComponent(videoId)}`;
+        iframe.title = item.title;
+        iframe.allow =
+          "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        iframe.allowFullscreen = true;
+        frameDiv.appendChild(iframe);
+      } else {
+        frameDiv.textContent = "VIDEO_ITEMS の url に YouTube URL を入れるとここに動画が表示されます";
+      }
+
+      card.appendChild(infoDiv);
+      card.appendChild(frameDiv);
+
+      if (videoId && item.url) {
+        const link = document.createElement("a");
+        link.className = "watch-link";
+        link.href = item.url;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = "YouTubeで開く ↗";
+        card.appendChild(link);
+      }
+
+      videoContainer.appendChild(card);
+    });
+  </script>
+</body>
+</html>
